@@ -1,0 +1,20 @@
+{
+  "name": "FrontEnd",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.1.0",
+    "animate.css": "^4.1.1",
+    "bootstrap": "^5.3.8",
+    "nuxt": "^4.2.2",
+    "vue": "^3.5.27",
+    "vue-router": "^4.6.4"
+  }
+}
