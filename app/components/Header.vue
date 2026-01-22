@@ -30,6 +30,7 @@
                 <div class="d-flex align-items-center w-100">
                   <ul class="ps-0 ms-auto mb-0">
                     <li
+                      style="margin-top: 8px;"
                       class="nav-item font-weight-semibold text-1 text-lg-2 text-color-dark d-none d-md-flex justify-content-end me-3">
                       Mon - Sat 9:00am - 6:00pm / Sunday - CLOSED
                     </li>

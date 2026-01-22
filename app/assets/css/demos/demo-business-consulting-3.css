@@ -119,6 +119,10 @@
     overflow: hidden;
 }
 
+.custom-crooked-line img {
+    filter: invert(33%) sepia(98%) saturate(1646%) hue-rotate(346deg) brightness(93%) contrast(97%);
+}
+
 /*
 * Custom Link Effects
 */
