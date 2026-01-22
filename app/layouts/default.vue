@@ -1,5 +1,6 @@
 <template>
   <div class="body">
+    <CursorEffect />
     <Header />
     <div role="main" class="main">
       <slot />

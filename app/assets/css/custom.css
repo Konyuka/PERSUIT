@@ -1,5 +1,16 @@
 /* Custom CSS for PERSUIT Consultants */
 
+/* Custom Cursor - Hide default cursor on desktop */
+@media (hover: hover) and (pointer: fine) {
+  html, body {
+    cursor: none !important;
+  }
+  
+  a, button, input, textarea, select, [role="button"], .btn, .clickable {
+    cursor: none !important;
+  }
+}
+
 /* AGGRESSIVE FIX - Remove ALL top margins/padding/borders */
 *, *::before, *::after {
   box-sizing: border-box;
