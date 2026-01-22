@@ -19,7 +19,7 @@
 html {
   margin: 0 !important;
   padding: 0 !important;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; 
 }
 
 body {
