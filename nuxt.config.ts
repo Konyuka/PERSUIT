@@ -22,13 +22,20 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'PERSUIT CONSULTANTS - Professional Business Consulting Services' }
+        { name: 'description', content: 'PERSUIT CONSULTANTS - Bridging International Technology & East African Hospitality' }
       ],
       link: [
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap' }
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap' },
+        { rel: 'stylesheet', href: '/vendor/owl.carousel/assets/owl.carousel.min.css' },
+        { rel: 'stylesheet', href: '/vendor/owl.carousel/assets/owl.theme.default.min.css' },
+        { rel: 'stylesheet', href: '/vendor/magnific-popup/magnific-popup.min.css' },
+        { rel: 'stylesheet', href: '/vendor/animate/animate.compat.css' },
+        { rel: 'stylesheet', href: '/vendor/simple-line-icons/css/simple-line-icons.min.css' }
       ],
       script: [
-        { src: '/vendor/bootstrap/js/bootstrap.bundle.min.js', defer: true }
+        { src: '/vendor/plugins/js/plugins.min.js', defer: true },
+        { src: '/js/theme.js', defer: true },
+        { src: '/js/theme.init.js', defer: true }
       ]
     }
   }

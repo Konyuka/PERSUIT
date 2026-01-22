@@ -1,12 +1,13 @@
 <template>
     <div>
         <!-- Page Header -->
-        <section class="page-header page-header-modern bg-color-dark py-5">
+        <section class="page-header page-header-modern py-5 position-relative"
+            style="background: linear-gradient(135deg, #1a2a3a 0%, #0d1b2a 100%);">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 align-self-center p-static order-2 text-center">
-                        <h1 class="text-10 font-weight-bold text-color-light">Blog</h1>
-                        <span class="sub-title text-color-light">Latest insights and news</span>
+                        <h1 class="text-10 font-weight-bold text-color-light mb-2">Insights & Blog</h1>
+                        <p class="text-color-light opacity-7 text-4 mb-0">Industry Trends, Tips & Expert Analysis</p>
                     </div>
                 </div>
             </div>
@@ -18,7 +19,7 @@
                 <li>
                     <NuxtLink to="/">Home</NuxtLink>
                 </li>
-                <li class="active">Blog</li>
+                <li class="active">Insights</li>
             </ul>
         </div>
 
@@ -27,36 +28,60 @@
             <div class="row">
                 <!-- Blog Posts -->
                 <div class="col-lg-8">
+                    <!-- Featured Post -->
+                    <div class="card border-0 shadow-lg mb-5" v-if="featuredPost">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <img :src="featuredPost.image" class="img-fluid rounded-start h-100" :alt="featuredPost.title"
+                                    style="object-fit: cover; min-height: 300px;" />
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body p-4 d-flex flex-column h-100">
+                                    <span class="badge bg-primary mb-3" style="width: fit-content;">{{ featuredPost.category }}</span>
+                                    <h3 class="font-weight-bold mb-3">{{ featuredPost.title }}</h3>
+                                    <p class="text-muted mb-3">{{ featuredPost.excerpt }}</p>
+                                    <div class="mt-auto">
+                                        <div class="d-flex align-items-center text-3 mb-3">
+                                            <span class="text-color-grey me-3">
+                                                <i class="fas fa-calendar-alt me-1"></i> {{ featuredPost.date }}
+                                            </span>
+                                            <span class="text-color-grey">
+                                                <i class="fas fa-user me-1"></i> {{ featuredPost.author }}
+                                            </span>
+                                        </div>
+                                        <a href="#" class="btn btn-primary font-weight-semibold">
+                                            Read Article <i class="fas fa-arrow-right ms-2"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Grid -->
                     <div class="row">
-                        <div class="col-12 mb-4" v-for="post in blogPosts" :key="post.id">
-                            <article class="card border-0 shadow">
+                        <div class="col-md-6 mb-4" v-for="post in blogPosts" :key="post.id">
+                            <article class="card border-0 shadow h-100">
                                 <div class="card-img-top position-relative overflow-hidden">
                                     <img :src="post.image" class="img-fluid w-100" :alt="post.title"
-                                        style="height: 300px; object-fit: cover;" />
+                                        style="height: 200px; object-fit: cover;" />
                                     <span
                                         class="position-absolute top-0 start-0 bg-color-primary text-color-light px-3 py-2 m-3 font-weight-semibold text-2">
                                         {{ post.category }}
                                     </span>
                                 </div>
                                 <div class="card-body p-4">
-                                    <div class="d-flex align-items-center text-3 mb-3">
+                                    <div class="d-flex align-items-center text-2 mb-2">
                                         <span class="text-color-grey me-3">
                                             <i class="fas fa-calendar-alt me-1"></i> {{ post.date }}
                                         </span>
-                                        <span class="text-color-grey me-3">
-                                            <i class="fas fa-user me-1"></i> {{ post.author }}
-                                        </span>
-                                        <span class="text-color-grey">
-                                            <i class="fas fa-comments me-1"></i> {{ post.comments }} Comments
-                                        </span>
                                     </div>
-                                    <h3 class="font-weight-semibold text-5 mb-3">
+                                    <h4 class="font-weight-bold text-4 mb-3">
                                         <a href="#" class="text-color-dark text-decoration-none">{{ post.title }}</a>
-                                    </h3>
-                                    <p class="mb-3">{{ post.excerpt }}</p>
-                                    <a href="#"
-                                        class="btn btn-primary custom-btn-style-1 font-weight-semibold btn-px-3 btn-py-2 text-3">
-                                        <span>Read More</span>
+                                    </h4>
+                                    <p class="text-3 text-muted mb-3">{{ post.excerpt }}</p>
+                                    <a href="#" class="text-color-primary font-weight-semibold text-decoration-none">
+                                        Read More <i class="fas fa-arrow-right ms-1"></i>
                                     </a>
                                 </div>
                             </article>
@@ -84,9 +109,9 @@
                     <!-- Search -->
                     <div class="card border-0 shadow mb-4">
                         <div class="card-body p-4">
-                            <h5 class="font-weight-semibold mb-3">Search</h5>
+                            <h5 class="font-weight-bold mb-3">Search</h5>
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search...">
+                                <input type="text" class="form-control" placeholder="Search articles...">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search"></i>
                                 </button>
@@ -97,33 +122,42 @@
                     <!-- Categories -->
                     <div class="card border-0 shadow mb-4">
                         <div class="card-body p-4">
-                            <h5 class="font-weight-semibold mb-3">Categories</h5>
+                            <h5 class="font-weight-bold mb-3">Categories</h5>
                             <ul class="list-unstyled mb-0">
                                 <li class="d-flex justify-content-between py-2 border-bottom" v-for="cat in categories"
                                     :key="cat.name">
-                                    <a href="#" class="text-decoration-none">{{ cat.name }}</a>
-                                    <span class="badge bg-color-primary">{{ cat.count }}</span>
+                                    <a href="#" class="text-decoration-none text-dark">{{ cat.name }}</a>
+                                    <span class="badge bg-color-primary rounded-pill">{{ cat.count }}</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Recent Posts -->
-                    <div class="card border-0 shadow">
+                    <!-- Popular Topics -->
+                    <div class="card border-0 shadow mb-4">
                         <div class="card-body p-4">
-                            <h5 class="font-weight-semibold mb-3">Recent Posts</h5>
-                            <ul class="list-unstyled mb-0">
-                                <li class="d-flex py-2 border-bottom" v-for="post in recentPosts" :key="post.title">
-                                    <img :src="post.image" class="me-3" width="60" height="60"
-                                        style="object-fit: cover;" :alt="post.title" />
-                                    <div>
-                                        <a href="#"
-                                            class="text-decoration-none text-color-dark font-weight-medium text-3">{{
-                                            post.title }}</a>
-                                        <small class="d-block text-color-grey mt-1">{{ post.date }}</small>
-                                    </div>
-                                </li>
-                            </ul>
+                            <h5 class="font-weight-bold mb-3">Popular Topics</h5>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span v-for="tag in popularTags" :key="tag" class="badge bg-light text-dark py-2 px-3">
+                                    {{ tag }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="card border-0 shadow bg-primary text-white">
+                        <div class="card-body p-4">
+                            <h5 class="font-weight-bold mb-3 text-white">Subscribe to Our Newsletter</h5>
+                            <p class="opacity-8 mb-3">Get the latest hospitality tech insights delivered to your inbox.</p>
+                            <form @submit.prevent="subscribeNewsletter">
+                                <div class="mb-3">
+                                    <input type="email" v-model="newsletterEmail" class="form-control" placeholder="Your email address" required>
+                                </div>
+                                <button type="submit" class="btn btn-light font-weight-semibold w-100">
+                                    Subscribe <i class="fas fa-paper-plane ms-2"></i>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -134,65 +168,94 @@
 
 <script setup>
 useHead({
-    title: 'Blog - PURSUIT'
+    title: 'Insights & Blog - PERSUIT Consultants | Hospitality Tech Trends'
 })
+
+const newsletterEmail = ref('')
+
+const subscribeNewsletter = () => {
+    alert(`Thank you for subscribing with ${newsletterEmail.value}!`)
+    newsletterEmail.value = ''
+}
+
+const featuredPost = {
+    id: 0,
+    title: 'The Future of Hospitality Technology in East Africa: 2026 Outlook',
+    excerpt: 'Explore the emerging trends shaping the hospitality technology landscape across Kenya, Tanzania, and the wider East African region.',
+    image: '/img/demos/business-consulting-3/services/services-1.jpg',
+    category: 'Industry Trends',
+    date: 'Jan 15, 2026',
+    author: 'James Mwangi'
+}
 
 const blogPosts = [
     {
         id: 1,
-        title: '10 Strategies for Accelerating Business Growth in 2024',
-        excerpt: 'Discover the most effective strategies that successful companies are using to drive sustainable growth in today\'s competitive market.',
-        image: '/img/demos/business-consulting-3/services/services-1.jpg',
-        category: 'Strategy',
-        date: 'Jan 15, 2024',
-        author: 'John Doe',
-        comments: 12
+        title: 'How Hotels Can Maximize Revenue with Dynamic Pricing',
+        excerpt: 'Learn the strategies that successful hotels use to optimize their pricing and increase RevPAR.',
+        image: '/img/demos/business-consulting-3/services/services-2.jpg',
+        category: 'Revenue Management',
+        date: 'Jan 10, 2026',
+        author: 'Grace Wanjiku'
     },
     {
         id: 2,
-        title: 'Digital Transformation: A Complete Guide for Businesses',
-        excerpt: 'Learn how to successfully navigate the digital transformation journey and leverage technology for competitive advantage.',
-        image: '/img/demos/business-consulting-3/services/services-2.jpg',
+        title: '5 Essential Tech Tools Every Tour Operator Needs',
+        excerpt: 'Discover the must-have technology solutions for modern tour operators in East Africa.',
+        image: '/img/demos/business-consulting-3/services/services-3.jpg',
         category: 'Technology',
-        date: 'Jan 10, 2024',
-        author: 'Jessica Brown',
-        comments: 8
+        date: 'Jan 5, 2026',
+        author: 'David Ochieng'
     },
     {
         id: 3,
-        title: 'Building High-Performance Teams: Best Practices',
-        excerpt: 'Explore proven techniques for building and maintaining teams that consistently deliver exceptional results.',
-        image: '/img/demos/business-consulting-3/services/services-3.jpg',
-        category: 'Leadership',
-        date: 'Jan 5, 2024',
-        author: 'Robert Smith',
-        comments: 15
+        title: 'Building a Strong Online Presence for Your Safari Lodge',
+        excerpt: 'Digital marketing strategies specifically tailored for safari lodges and camps.',
+        image: '/img/demos/business-consulting-3/services/services-4.jpg',
+        category: 'Digital Marketing',
+        date: 'Dec 28, 2025',
+        author: 'Peter Njoroge'
+    },
+    {
+        id: 4,
+        title: 'Partnership Best Practices: Connecting Tech & Hospitality',
+        excerpt: 'How technology companies can successfully partner with East African hospitality businesses.',
+        image: '/img/demos/business-consulting-3/services/services-5.jpg',
+        category: 'Partnerships',
+        date: 'Dec 20, 2025',
+        author: 'Sarah Kimani'
+    },
+    {
+        id: 5,
+        title: 'OTA Optimization: Getting More Bookings from Booking.com',
+        excerpt: 'Practical tips to improve your visibility and conversion rates on major OTAs.',
+        image: '/img/demos/business-consulting-3/services/services-6.jpg',
+        category: 'Distribution',
+        date: 'Dec 15, 2025',
+        author: 'Grace Wanjiku'
+    },
+    {
+        id: 6,
+        title: 'Training Your Team for Technology Adoption Success',
+        excerpt: 'Best practices for onboarding staff to new hospitality technology platforms.',
+        image: '/img/demos/business-consulting-3/services/services-1.jpg',
+        category: 'Training',
+        date: 'Dec 10, 2025',
+        author: 'Nancy Achieng'
     }
 ]
 
 const categories = [
-    { name: 'Strategy', count: 12 },
-    { name: 'Technology', count: 8 },
-    { name: 'Leadership', count: 6 },
-    { name: 'Marketing', count: 10 },
-    { name: 'Finance', count: 4 }
+    { name: 'Revenue Management', count: 15 },
+    { name: 'Technology', count: 12 },
+    { name: 'Digital Marketing', count: 18 },
+    { name: 'Partnerships', count: 8 },
+    { name: 'Industry Trends', count: 10 },
+    { name: 'Case Studies', count: 6 }
 ]
 
-const recentPosts = [
-    {
-        title: 'Leadership Tips for 2024',
-        image: '/img/demos/business-consulting-3/services/services-4.jpg',
-        date: 'Jan 18, 2024'
-    },
-    {
-        title: 'Marketing Trends to Watch',
-        image: '/img/demos/business-consulting-3/services/services-5.jpg',
-        date: 'Jan 12, 2024'
-    },
-    {
-        title: 'Cost Optimization Strategies',
-        image: '/img/demos/business-consulting-3/services/services-6.jpg',
-        date: 'Jan 8, 2024'
-    }
+const popularTags = [
+    'Hotels', 'Tour Operators', 'OTA', 'Dynamic Pricing', 'SEO', 
+    'CRM', 'East Africa', 'Safari', 'Technology', 'Revenue'
 ]
 </script>

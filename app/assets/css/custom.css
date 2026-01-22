@@ -1,0 +1,194 @@
+/* Custom CSS for PERSUIT Consultants */
+
+/* AGGRESSIVE FIX - Remove ALL top margins/padding/borders */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+#__nuxt {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.body {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-top: none !important;
+}
+
+/* Remove the header border-top that creates visual gap */
+#header {
+  margin: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  position: relative;
+  top: 0;
+  height: auto !important;
+  border: none !important;
+}
+
+#header[style] {
+  height: auto !important;
+}
+
+#header .header-body {
+  margin: 0 !important;
+  padding: 0 !important;
+  border-top: 0 none !important;
+  border-top-width: 0 !important;
+  min-height: auto !important;
+}
+
+#header .header-body[style] {
+  position: relative !important;
+}
+
+/* Fix header-top height - compact version */
+#header .header-top {
+  height: auto !important;
+  min-height: auto !important;
+  padding: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin: 0 !important;
+  border-top: none !important;
+}
+
+#header .header-top.header-top-default {
+  padding: 0 !important;
+}
+
+#header .header-top.header-top-borders {
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-top: none !important;
+}
+
+#header .header-top .nav-item {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+/* Fix header container height - more compact */
+#header .header-container {
+  height: auto !important;
+  min-height: 70px !important;
+  padding: 10px 0 !important;
+}
+
+#header .header-row {
+  min-height: auto !important;
+}
+
+/* Reduce header logo size slightly */
+#header .header-logo img {
+  max-height: 35px !important;
+  width: auto !important;
+}
+
+/* Compact navigation */
+#header .header-nav-main nav > ul > li > a {
+  padding: 10px 15px !important;
+}
+
+/* Fix sticky header height */
+#header.header-effect-shrink .header-body {
+  min-height: auto !important;
+}
+
+/* Fix main content spacing */
+.main {
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Fix footer spacing */
+#footer {
+  margin: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Remove any gap before footer */
+.body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.body > .main {
+  flex: 1;
+}
+
+.body > #footer {
+  margin-top: auto;
+}
+
+/* Ensure hero section connects to header */
+.section-with-shape-divider {
+  margin-top: 0 !important;
+}
+
+/* Services Carousel - Force 2 cards per view */
+.services-carousel-wrapper {
+  overflow: hidden !important;
+  max-width: 100%;
+}
+
+.services-carousel-wrapper .swiper {
+  overflow: hidden !important;
+}
+
+.services-carousel-wrapper .swiper-wrapper {
+  display: flex !important;
+}
+
+.services-carousel-wrapper .swiper-slide {
+  flex-shrink: 0 !important;
+  width: calc(50% - 10px) !important;
+}
+
+@media (max-width: 767px) {
+  .services-carousel-wrapper .swiper-slide {
+    width: 100% !important;
+  }
+}
+
+/* SVG icon colors */
+.svg-fill-color-primary {
+  filter: invert(33%) sepia(98%) saturate(1646%) hue-rotate(346deg) brightness(93%) contrast(97%);
+}
+
+/* Custom link hover effects */
+.custom-link-hover-effects .card {
+  transition: all 0.3s ease;
+}
+
+.custom-link-hover-effects:hover .card {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom view more link */
+.custom-view-more {
+  transition: all 0.3s ease;
+}
+
+.custom-link-hover-effects:hover .custom-view-more {
+  transform: translateX(5px);
+}
+
+/* Fix parallax background for Nuxt */
+[data-plugin-parallax] {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
