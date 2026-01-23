@@ -190,7 +190,7 @@
                                 <div class="card-img-top position-relative overlay overlay-show">
                                     <div class="position-absolute bottom-0 left-0 w-100 py-3 px-4 z-index-3">
                                         <h4 class="font-weight-semibold text-color-light text-6 mb-1">{{ service.title
-                                        }}</h4>
+                                            }}</h4>
                                         <div class="custom-crooked-line">
                                             <img width="154" height="26"
                                                 src="/img/demos/business-consulting-3/icons/infinite-crooked-line.svg"
@@ -365,6 +365,142 @@
             </div>
         </div>
 
+        <!-- Get In Touch Section -->
+        <section class="section section-with-shape-divider position-relative bg-dark border-0 m-0">
+            <div class="shape-divider shape-divider-reverse-x z-index-3" style="height: 102px;">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1920 102"
+                    preserveAspectRatio="xMinYMin">
+                    <polygon fill="#F3F3F3" points="0,65 220,35 562,63 931,10 1410,68 1920,16 1920,103 0,103 " />
+                    <polygon fill="#FFFFFF" points="0,82 219,51 562,78 931,26 1409,83 1920,32 1920,103 0,103 " />
+                </svg>
+            </div>
+            <!-- Orange right panel with background image -->
+            <div class="position-absolute top-0 end-0 h-100 d-none d-md-block"
+                style="width: 32%; background: linear-gradient(135deg, rgba(240,76,35,0.9) 0%, rgba(224,68,32,0.95) 100%);">
+                <div class="position-absolute top-0 start-0 w-100 h-100"
+                    style="background: url('/img/demos/business-consulting-3/backgrounds/background-2.jpg') center center; background-size: cover; mix-blend-mode: multiply; opacity: 0.3;">
+                </div>
+            </div>
+            <div class="container">
+                <div class="row align-items-center pt-5 pb-xl-5 mt-5">
+                    <div class="col-md-7 col-lg-8 py-4 my-2 ms-md-3 ms-lg-0">
+                        <h2
+                            class="custom-highlight-text-1 d-inline-block line-height-5 text-4 positive-ls-3 font-weight-medium text-color-primary mb-2">
+                            GET IN TOUCH</h2>
+                        <h3
+                            class="text-9 line-height-3 text-transform-none font-weight-medium text-color-light ls-0 mb-3 pb-1">
+                            Send Us a Message and Learn More About Our Services</h3>
+                        <p class="text-3-5 text-color-light opacity-7 pb-3 mb-4">
+                            Have questions about our hospitality technology solutions? Ready to explore a partnership?
+                            We'd love to hear from you. Fill out the form below and our team will get back to you within
+                            24
+                            hours.
+                        </p>
+                        <form class="contact-form">
+                            <div class="row">
+                                <div class="form-group col">
+                                    <input type="text" class="form-control text-3 h-auto py-2 bg-transparent text-white"
+                                        style="border: none; border-bottom: 1px solid rgba(255,255,255,0.3);"
+                                        name="name" placeholder="* Full Name" required>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="form-group col">
+                                    <input type="email"
+                                        class="form-control text-3 h-auto py-2 bg-transparent text-white"
+                                        style="border: none; border-bottom: 1px solid rgba(255,255,255,0.3);"
+                                        name="email" placeholder="* Email Address" required>
+                                </div>
+                            </div>
+                            <div class="row mt-3 mb-4">
+                                <div class="form-group col">
+                                    <textarea rows="4" class="form-control text-3 h-auto py-2 bg-transparent text-white"
+                                        style="border: none; border-bottom: 1px solid rgba(255,255,255,0.3);"
+                                        name="message" placeholder="* Message" required></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col">
+                                    <button type="submit"
+                                        class="btn btn-primary custom-btn-style-1 font-weight-semibold btn-px-4 btn-py-2 text-3-5">
+                                        <span>Send Message</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section section-height-3 border-0 m-0 position-relative"
+            style="background: url('/img/demos/business-consulting-3/backgrounds/background-3.jpg') center center; background-size: cover;">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col text-center">
+                        <h2
+                            class="custom-highlight-text-1 d-inline-block line-height-5 text-4 positive-ls-3 font-weight-medium text-color-primary mb-2">
+                            TESTIMONIALS</h2>
+                        <h3
+                            class="text-9 line-height-3 text-transform-none font-weight-semibold text-color-dark pb-3 mb-4">
+                            What People Say</h3>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <ClientOnly>
+                            <div class="bg-white box-shadow-4 p-5 position-relative" style="border-radius: 8px;">
+                                <!-- Quote icon -->
+                                <div class="text-center mb-4">
+                                    <span class="text-color-primary"
+                                        style="font-size: 3rem; font-family: serif;">"</span>
+                                </div>
+                                <!-- Testimonial content -->
+                                <div class="text-center px-lg-5">
+                                    <p class="text-color-dark text-4 line-height-8 mb-4" style="font-style: italic;">
+                                        {{ testimonials[currentTestimonial].quote }}
+                                    </p>
+                                    <div class="testimonial-author">
+                                        <strong class="font-weight-bold text-5-5 d-block mb-1">
+                                            - {{ testimonials[currentTestimonial].name }}</strong>
+                                        <span class="text-color-dark">{{ testimonials[currentTestimonial].role }}</span>
+                                    </div>
+                                </div>
+                                <!-- Navigation arrows -->
+                                <div class="d-flex justify-content-between align-items-center position-absolute w-100 top-50 start-0 translate-middle-y px-3"
+                                    style="pointer-events: none;">
+                                    <button @click="prevTestimonial" class="btn btn-link text-color-primary p-2"
+                                        style="pointer-events: auto; font-size: 1.5rem;">
+                                        <i class="fas fa-arrow-left"></i>
+                                    </button>
+                                    <button @click="nextTestimonial" class="btn btn-link text-color-primary p-2"
+                                        style="pointer-events: auto; font-size: 1.5rem;">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                                <!-- Dots indicator -->
+                                <div class="d-flex justify-content-center gap-2 mt-4">
+                                    <span v-for="(_, index) in testimonials" :key="index"
+                                        @click="currentTestimonial = index" class="rounded-circle cursor-pointer"
+                                        :style="{
+                                            width: '10px',
+                                            height: '10px',
+                                            backgroundColor: currentTestimonial === index ? '#F04C23' : '#ddd',
+                                            cursor: 'pointer'
+                                        }"></span>
+                                </div>
+                            </div>
+                            <template #fallback>
+                                <div class="bg-white box-shadow-4 p-5" style="border-radius: 8px; min-height: 200px;">
+                                </div>
+                            </template>
+                        </ClientOnly>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Problems We Solve Section -->
         <section class="section border-0 m-0 py-5" style="background-color: #f4f4f4;">
             <div class="container py-4">
@@ -520,6 +656,8 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
 useHead({
     title: 'PERSUIT Consultants | Hospitality Technology & Revenue Management | East Africa'
 })
@@ -626,4 +764,34 @@ const problemsSolved = [
         icon: 'fas fa-graduation-cap'
     }
 ]
+
+// Testimonials data
+const testimonials = [
+    {
+        quote: 'PERSUIT Consultants transformed our hotel\'s digital presence. Their technology integration expertise helped us increase direct bookings by 40% and streamline our operations significantly.',
+        name: 'Sarah Mwangi',
+        role: 'General Manager, Serena Hotels Kenya'
+    },
+    {
+        quote: 'As a tour operator, working with PERSUIT was a game-changer. They connected us with the right technology partners and helped us modernize our booking systems seamlessly.',
+        name: 'James Ochieng',
+        role: 'CEO, Safari Adventures East Africa'
+    },
+    {
+        quote: 'The revenue management strategies implemented by PERSUIT helped us optimize our pricing and increase our RevPAR by 25%. Their understanding of the East African market is unmatched.',
+        name: 'Grace Kimani',
+        role: 'Director of Revenue, Fairmont Hotels'
+    }
+]
+
+// Testimonial navigation
+const currentTestimonial = ref(0)
+
+const nextTestimonial = () => {
+    currentTestimonial.value = (currentTestimonial.value + 1) % testimonials.length
+}
+
+const prevTestimonial = () => {
+    currentTestimonial.value = (currentTestimonial.value - 1 + testimonials.length) % testimonials.length
+}
 </script>

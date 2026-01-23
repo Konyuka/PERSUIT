@@ -246,3 +246,19 @@ body {
 .contact-link-item:hover .contact-icon {
   transform: scale(1.1);
 }
+
+/* Contact form styling on dark background */
+.contact-form .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form .form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-bottom-color: #F04C23 !important;
+}
+
+/* Testimonial section */
+.testimonial-author {
+  position: relative;
+}
